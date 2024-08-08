@@ -1,0 +1,107 @@
+---
+const features = [
+  {
+    title: "Forge Stronger Team Bonds",
+    description: "Create a digital space that mirrors your company culture, fostering connections and spontaneous interactions among remote team members.",
+    image: "/images/feature-1.png",
+    label: "TEAM SYNERGY"
+  },
+  {
+    title: "Seamless Communication Flow",
+    description: "Enable natural, impromptu conversations throughout the workday, replicating the ease of office interactions in a virtual environment.",
+    image: "/images/feature-2.png",
+    label: "FLUID INTERACTIONS"
+  },
+  {
+    title: "Elevate Collaborative Efficiency",
+    description: "Facilitate instant collaborations or scheduled meetings, keeping your team aligned and projects progressing smoothly in real-time.",
+    image: "/images/feature-3.png",
+    label: "STREAMLINED TEAMWORK"
+  }
+];
+---
+
+<section class="features">
+  <h2>Redefine Remote Work Dynamics</h2>
+  {features.map((feature, index) => (
+    <div class="feature" data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}>
+      <div class="feature-content">
+        <span class="feature-label">{feature.label}</span>
+        <h3>{feature.title}</h3>
+        <p>{feature.description}</p>
+      </div>
+      <div class="feature-image">
+        <img src={feature.image} alt={feature.title} />
+      </div>
+    </div>
+  ))}
+</section>
+
+<style>
+  .features {
+    padding: 4rem 2rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .feature:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .feature-content {
+    flex: 1;
+    padding: 2rem;
+  }
+  .feature-label {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: var(--color-secondary);
+  }
+  .feature-image {
+    flex: 1;
+    position: relative;
+  }
+  .feature-image::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: 10px;
+    bottom: 10px;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    border-radius: 16px;
+    z-index: -1;
+  }
+  .feature-image img {
+    max-width: 100%;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+  .feature-image img:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+<script>
+  import AOS from 'aos';
+  import 'aos/dist/aos.css';
+  AOS.init();
+</script>

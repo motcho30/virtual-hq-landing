@@ -1,0 +1,81 @@
+<header class="header">
+  <div class="logo">
+    <img src="/images/LOGO-V.png" alt="NexusSpace Logo" />
+    <span>NexusSpace</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+  </nav>
+  <div class="cta-buttons">
+    <a href="#" class="btn btn-secondary">Try Demo</a>
+    <a href="#" class="btn btn-primary">Get Started</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(15, 14, 23, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  .logo img {
+    height: 2rem;
+  }
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    gap: 1.5rem;
+  }
+  nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: var(--color-secondary);
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+  }
+  .btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--color-text);
+    color: var(--color-text);
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(108, 99, 255, 0.2);
+  }
+</style>

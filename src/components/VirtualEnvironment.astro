@@ -1,0 +1,87 @@
+<section class="virtual-environment">
+  <h2>Experience Your New Digital Workspace</h2>
+  <div class="environment-preview">
+    <img src="/images/pic1.png" alt="NexusSpace Virtual Office" />
+    <div class="hotspot" style="top: 20%; left: 30%;">
+      <span class="hotspot-dot"></span>
+      <div class="hotspot-text">Customizable meeting rooms</div>
+    </div>
+    <div class="hotspot" style="top: 60%; left: 70%;">
+      <span class="hotspot-dot"></span>
+      <div class="hotspot-text">Collaborative work areas</div>
+    </div>
+    <div class="hotspot" style="top: 40%; left: 50%;">
+      <span class="hotspot-dot"></span>
+      <div class="hotspot-text">Virtual water cooler for casual chats</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .virtual-environment {
+    background: linear-gradient(to bottom, #1a1a2e, var(--color-background));
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .environment-preview {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .environment-preview img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  .hotspot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+  .hotspot-dot {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    animation: pulse 2s infinite;
+  }
+  .hotspot-text {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .hotspot:hover .hotspot-text {
+    opacity: 1;
+  }
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 101, 132, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(255, 101, 132, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 101, 132, 0);
+    }
+  }
+</style>

@@ -1,0 +1,148 @@
+---
+const testimonials = [
+  {
+    quote: "NexusSpace has revolutionized how our global team collaborates. It's like we're all in the same room!",
+    name: "Alex Chen",
+    title: "CTO at FutureTech Solutions",
+    image: "/images/profile3.jpg"
+  },
+  {
+    quote: "The virtual office features have significantly boosted our team's productivity and camaraderie.",
+    name: "Samantha Lee",
+    title: "Head of Remote at InnovateCorp",
+    image: "/images/girl.jpg"
+  },
+  {
+    quote: "NexusSpace's intuitive design made the transition to remote work seamless for our entire organization.",
+    name: "Michael Johnson",
+    title: "Director of Operations at GlobalConnect",
+    image: "/images/profile2.jpg"
+  }
+];
+---
+
+<section class="testimonials">
+  <h2>What Our Users Say</h2>
+  <div class="testimonial-carousel">
+    {testimonials.map((testimonial, index) => (
+      <div class="testimonial-card" id={`testimonial-${index}`}>
+        <img src={testimonial.image} alt={testimonial.name} class="profile-img" />
+        <blockquote>{testimonial.quote}</blockquote>
+        <p class="name">{testimonial.name}</p>
+        <p class="title">{testimonial.title}</p>
+      </div>
+    ))}
+  </div>
+  <div class="carousel-nav">
+    {testimonials.map((_, index) => (
+      <button class="nav-dot" data-index={index}></button>
+    ))}
+  </div>
+  <div class="awards">
+    <img src="/images/badge1.png" alt="Leader Award 2024" />
+    <img src="/images/badge2.png" alt="Best Usability Award" />
+    <img src="/images/badge3.png" alt="Customer Choice Award" />
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background-color: #1a1a2e;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .testimonial-carousel {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+  }
+  .testimonial-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .testimonial-card.active {
+    opacity: 1;
+  }
+  .profile-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .name {
+    font-weight: bold;
+    color: var(--color-secondary);
+  }
+  .title {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .carousel-nav {
+    margin-top: 2rem;
+  }
+  .nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .nav-dot.active {
+    background-color: var(--color-primary);
+  }
+  .awards {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .awards img {
+    height: 200px;
+  }
+</style>
+
+<script>
+  let currentTestimonial = 0;
+  const testimonials = document.querySelectorAll('.testimonial-card');
+  const dots = document.querySelectorAll('.nav-dot');
+
+  function showTestimonial(index) {
+    testimonials.forEach(t => t.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    testimonials[index].classList.add('active');
+    dots[index].classList.add('active');
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentTestimonial = index;
+      showTestimonial(currentTestimonial);
+    });
+  });
+
+  setInterval(() => {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    showTestimonial(currentTestimonial);
+  }, 5000);
+
+  showTestimonial(0);
+</script>
